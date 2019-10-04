@@ -19,4 +19,14 @@ class Credentials:
     """
     Class that generrates new instances of users credentials
     """
+    def __init__(self, user_name, site_name, account_name, password):
+        '''
+        Method to define the properties for each user object will hold.
+        '''
+
+        # instance variables
+        self.user_name = user_name
+        self.site_name = site_name
+        self.account_name = account_name
+        self.password = password
 
