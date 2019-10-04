@@ -1,6 +1,6 @@
 class User:
     """
-    Class that generrates new instances of contacts
+    Class that generrates new instances of users
     """
     user_list = []
 
@@ -15,5 +15,8 @@ class User:
         self.email = email
         self.password = password
 
-
+class Credentials:
+    """
+    Class that generrates new instances of users credentials
+    """
 
