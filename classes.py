@@ -58,3 +58,19 @@ class Credentials:
         self.account_name = account_name
         self.password = password
 
+
+        def save_credentials(self):
+            '''
+            Function to save user credentials
+            '''
+
+        Credential.credential_list.append(self)
+
+        def delete_credentials(self):
+            '''
+            Function to delete user credentials
+            '''
+
+        Credential.credential_list.remove(self)
+
+
