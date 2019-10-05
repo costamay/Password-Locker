@@ -2,9 +2,9 @@ class User:
     """
     Class that generrates new instances of users
     """
-    user_list = []
+    users_list = []
 
-    def __init__(self,first_name,last_name,phone_number,email,password):
+    def __init__(self,first_name,last_name,phone_number,email,username,password):
         """
         method to define properties for each user object
         """
@@ -13,7 +13,20 @@ class User:
         self.last_name = last_name
         self.phone_number = phone_number
         self.email = email
+        self.username = username
         self.password = password
+
+    def save_user(self):
+        '''
+        Function to save a newly created user instance
+        '''
+        User.users_list.append(self)
+
+    def delete_user(self):
+        '''
+        Function to delete user information
+        '''
+        User.users_list.remove(self)    
 
 class Credentials:
     """
@@ -21,6 +34,8 @@ class Credentials:
     """
     credential_list = []
     user_crediatials_list = []
+
+    
 
     def __init__(self, user_name, site_name, account_name, password):
         '''
