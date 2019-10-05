@@ -35,7 +35,16 @@ class Credentials:
     credential_list = []
     user_crediatials_list = []
 
-    
+    @classmethod
+    def check_user(cls, first_name, password):
+        '''
+        Method that checks if the name and password entered match entries in the user_list
+        '''
+        current_user = ''
+        for user in User.users_list:
+            if (user.username == username and user.password == password):
+                current_user = user.username
+                return current_user
 
     def __init__(self, user_name, site_name, account_name, password):
         '''
