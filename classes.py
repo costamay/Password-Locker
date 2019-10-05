@@ -36,7 +36,7 @@ class Credentials:
     user_crediatials_list = []
 
     @classmethod
-    def check_user(cls, first_name, password):
+    def check_user(cls, username, password):
         '''
         Method that checks if the name and password entered match entries in the user_list
         '''
@@ -72,5 +72,15 @@ class Credentials:
             '''
 
         Credential.credential_list.remove(self)
+
+        @classmethod
+        def find_by_site_name(cls, site_name):
+        '''
+        A method to search for credentials associated with a given account type.
+        '''
+        for credential in cls.credential_list:
+            if credential.site_name == site_name:
+
+                return credential
 
 
