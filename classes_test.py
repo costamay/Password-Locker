@@ -54,6 +54,25 @@ class TestCredential(unittest.TestCase):
         self.assertEqual(self.new_credential.site_name, 'twitter')
         self.assertEqual(self.new_credential.password, '12345')
 
+# Testing credentials
+
+    def tearDown(self):
+        Credential.credential_list = []
+        User.users_list = []
+
+    def test_save_credentials(self):
+        self.new_credential.save_credentials()
+        twitter = Credential('titus', 'twitter', '12345')
+        twitter.save_credentials()
+        self.assertEqual(len(Credential.credential_list), 2)
+
+    def test_delete_credentials(self):
+        self.new_credential.save_credentials()
+        twitter = Credential('titus', 'twitter', 'alex-muliande', '12345')
+        twitter.save_credentials()
+        twitter.delete_credentials()
+        self.assertEqual(len(Credential.credential_list), 1)
+
 
 if __name__ == '__main__':
     unittest.main()
