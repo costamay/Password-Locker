@@ -1,5 +1,5 @@
 from classes import User
-from classes import Credential
+from classes import Credentials
 import unittest
 import pyperclip
 
