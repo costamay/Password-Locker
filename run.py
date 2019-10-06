@@ -73,4 +73,12 @@ def copy_credentials(cls, site_name):
 
 def main():
 
-   
+    guest_name = input("What is your name?")
+    print(f"Hello {guest_name}, welcome to Password Locker:")
+    print('\n')
+    while True:
+        print('\n')
+        print(r"*"*30)
+        print('\n')
+        print("Use these short codes to navigate through Password_Locker:\n ln to log in \n ca to create a new account. \n ex to exit")
+        print('\n')
