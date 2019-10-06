@@ -6,11 +6,6 @@
 ## Description
 This is a project that enable clients to store and retrieve their credentials upon loggin
 
-
-## Setup instructions
-* Clone the program from [Online repo]()
-* Click on the green button to clone or download
-
 ## Behavior Driven Development
 <table>
     <tr>
