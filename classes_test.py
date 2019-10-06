@@ -15,7 +15,12 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.phone_number, '0727719206')
         self.assertEqual(self.new_user.password, '1234')
 
+    def tearDown(self):
+        Credential.credential_list = []
+        User.users_list = []
+
     
+
 if __name__ == '__main__':
     unittest.main()
 
