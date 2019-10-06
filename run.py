@@ -82,3 +82,117 @@ def main():
         print('\n')
         print("Use these short codes to navigate through Password_Locker:\n ln to log in \n ca to create a new account. \n ex to exit")
         print('\n')
+
+        short_code = input().lower()
+        if short_code == 'ca':
+            print("New Account")
+            print("-"*10)
+
+            print("Enter First Name ...")
+            first_name = input()
+
+            print("Enter Last Name ...")
+            last_name = input()
+
+            print("Enter Phone Number ...")
+            phone_number = input()
+
+            print(" Enter Email Address ...")
+            email = input()
+
+            print(" Enter Uesername Address ...")
+            username = input()
+
+            
+
+            print("Do you want to input your own password or have one generated for you? Use short codes\n'gp\' to generate password.\n \'cyo\' to choose your own password \n \'ex\' to exit... ")
+            password_choice = input()
+            password = ''
+
+            if password_choice == 'cyo':
+                password = password.join(
+                    input("Enter a password of your choice..."))
+                
+
+            elif password_choice == 'gp':
+                print("Enter the length of the password you wish to generate eg 9 ")
+                pass_len = input()
+                password = password.join(
+                    Credential.rand_pass(pass_len))
+                
+
+            elif password_choice == 'ex':
+                break
+
+            else:
+                print("Sorry I didn\'t get that. Please try again")
+
+                
+                
+            # Create and save new user
+            save_user(create_user(first_name, last_name, phone_number,email,username, password))
+            print('\n')
+            print(f"New Account for {first_name} {last_name} created.")
+            print('\n')
+            print(
+                f"Your password is {password} :-Use it to log in using short code ln")
+
+            print('\n')
+
+        elif short_code == 'ln':
+            print('\n')
+            print("Enter your account details to log in: \n Enter your username...")
+            username = input()
+            print("Enter your password...")
+            password = input()
+            account_exist = verify_user(username, password)
+            if account_exist == username:
+                print('\n')
+                print(
+                    f"Welcome to your Password locker account {first_name}: \n Please choose an option to continue...")
+                print('\n')
+                while True:
+                    print('\n')
+                    print("Navigation short codes: \n cc to create new credentials: \n dc to display credentials: \n sc to search credentials: \n rm to remove or delete credentials: \n copy to copy credentials: \n ex to exit")
+                    print('\n')
+                    short_code = input().lower()
+                    if short_code == 'cc':
+                        print('\n')
+                        print("Enter your credential details")
+                        print("Enter account type... eg \'google\'")
+                        account_name = input()
+                        print(f"Enter username ")
+                        user_name = input()
+                        print(f"Enter site name")
+                        site_name = input()
+
+                        print(
+                            f"Enter the username you used or would love to use on {site_name}")
+                        user_name = input()
+
+                        while True:
+                            print("Do you want to input your own password or have one generated for you? Use short codes\n'gp\' to generate password.\n \'cyo\' to choose your own password \n \'ex\' to exit... ")
+                            password_choice = input()
+                            if password_choice == 'cyo':
+                                password = input(
+                                    "Enter a password of your choice...")
+                                break
+
+                            elif password_choice == 'gp':
+                                print(
+                                    "Enter the length of the password you wish to generate eg 9 ")
+                                pass_len = input()
+                                pass_len = int(pass_len)
+                                password = Credential.rand_pass(
+                                    pass_len)
+                                break
+
+                            elif password_choice == 'ex':
+                                break
+
+                            else:
+                                print("Sorry I didn\'t get that. Please try again")
+
+                        
+
+                        
