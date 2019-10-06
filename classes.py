@@ -67,9 +67,9 @@ class Credentials:
             Function to save user credentials
             '''
 
-        Credential.credential_list.append(self)
+            Credential.credential_list.append(self)
 
-     def delete_credentials(self):
+    def delete_credentials(self):
             '''
             Function to delete user credentials
             '''
