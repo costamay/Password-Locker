@@ -195,4 +195,53 @@ def main():
 
                         
 
-                        
+                        save_credentials(create_credential(
+                            user_name, site_name, account_name, password))
+                        print(' \n')
+                        print(
+                            f'Credential Created:\n Account type: {site_name}  \n Account Username: {user_name} \n Account Password: {password}')
+                        print('\n ')
+
+                    # elif short_code == 'dc':
+                    #     if display_credentials(u_name):
+                    #         print("Here is a list of your credentials:")
+                    #         print('\n')
+                    #         for credential in display_credentials(u_name):
+                    #             print(f"Credential Created:\n Account type: {at_type} \n Account Registration Name: {at_rname}\n Account registration Email: {at_remail} \n Account Username: {at_uname} \n Account Password: {at_password}")
+
+                    #     else:
+                    #         print("You don\'t have any credentials yet")
+
+                    # elif short_code == 'rm':
+                    #     print("Enter the account type of the credential you wish to delete:...")
+                    #     credential_to_delete = input()
+                    #     if find_by_account_type(credential_to_delete):
+                    #         credential_to_delete = delete_credentials(credential_to_delete)
+                    #         print("Credential successfully deleted!")
+                    #     else:
+                    #         print(" We couldin\'t find the credentials associated with the account name you typed.")
+
+                    # elif short_code == "copy":
+                    #     print(' \n')
+                    #     site_name = input(
+                    #         'Enter the site name for the credential password to copy: ')
+                    #     cls.copy_credentials(site_name)
+                    #     print('\n')
+
+                    else:
+                        print("I didn\'t get that, please try again")
+
+            else:
+                print(
+                    f"Sorry, we couldn\'t' find any account under the name {user_name}")
+                print('\n')
+        elif short_code == 'ex':
+            break
+
+        else:
+            print("I really did'nt get that, please use the short code ")
+
+print('\n')
+
+if __name__ == '__main__':
+    main()
