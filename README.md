@@ -5,8 +5,7 @@
 
 ## Description
 This is a project that enable clients to store and retrieve their credentials upon loggin
-## Project live site
-  This is the live .[ Click for the demo]()
+
 
 ## Setup instructions
 * Clone the program from [Online repo]()
