@@ -44,6 +44,15 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.users_list), 1)
 
 
+class TestCredential(unittest.TestCase):
+    def setUp(self):
+        self.new_credential = Credential(
+            'titus', 'twitter', '12345')
+
+    def test__init__(self):
+        self.assertEqual(self.new_credential.user_name, 'titus')
+        self.assertEqual(self.new_credential.site_name, 'twitter')
+        self.assertEqual(self.new_credential.password, '12345')
 
 
 if __name__ == '__main__':
