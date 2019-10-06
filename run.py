@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 import pyperclip
-from user import User
-from user import Credential
+from classes import User
+from classes import Credentials
 
 
 def create_user(first_name, last_name, email, phone_number,username, password):
@@ -122,6 +122,7 @@ def main():
                 
 
             elif password_choice == 'ex':
+                
                 break
 
             else:
