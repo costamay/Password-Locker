@@ -71,3 +71,6 @@ def copy_credentials(cls, site_name):
     return cls.copy_credentials(cls, site_name)
 
 
+def main():
+
+   
