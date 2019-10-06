@@ -1,3 +1,6 @@
+import string
+import random
+
 class User:
     """
     Class that generrates new instances of users
@@ -46,7 +49,7 @@ class Credentials:
                 current_user = user.username
                 return current_user
 
-    def __init__(self, user_name, site_name, account_name, password):
+    def __init__(self, user_name, site_name, password):
         '''
         Method to define the properties for each user object will hold.
         '''
@@ -55,26 +58,34 @@ class Credentials:
         # instance variables
         self.user_name = user_name
         self.site_name = site_name
-        self.account_name = account_name
         self.password = password
 
 
-        def save_credentials(self):
+    def save_credentials(self):
             '''
             Function to save user credentials
             '''
 
         Credential.credential_list.append(self)
 
-        def delete_credentials(self):
+     def delete_credentials(self):
             '''
             Function to delete user credentials
             '''
+            Credential.credential_list.remove(self)
+    
+    def rand_pass(self,size): 
+      
+        # Takes random choices from 
+        # ascii_letters and digits 
+        generate_pass = ''.join([random.choice( 
+                        string.ascii_letters + string.digits) 
+                        for n in range(size)]) 
+                          
+        return generate_pass 
 
-        Credential.credential_list.remove(self)
-
-        @classmethod
-        def find_by_site_name(cls, site_name):
+    @classmethod
+    def find_by_site_name(cls, site_name):
         '''
         A method to search for credentials associated with a given account type.
         '''
