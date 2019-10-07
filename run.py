@@ -72,14 +72,26 @@ def copy_credentials(cls, site_name):
     return cls.copy_credentials(cls, site_name)
 
 def function():
-        print("                            ____         ___   ___                ____      ")
-        print("           |          |   |       |     |     |   |  |\      /|  |          ")
-        print("           |    /\    |   |____   |     |     |   |  | \    / |  |          ")
-        print("           |   /  \   |   |____   |     |     |   |  |  \  /  |  | ___      ")             
-        print("           |  /    \  |   |       |     |     |   |  |   \/   |  |          ")
-        print("           | /      \ |   |       |     |     |   |  |        |  |          ")
-        print("           |/        \|   |____   |____ |____ |___|  |        |  |____      ")              
-        print("                                                                            ")
+        # print("                            ____         ___   ___                ____      ")
+        # print("           |          |   |       |     |     |   |  |\      /|  |          ")
+        # print("           |    /\    |   |____   |     |     |   |  | \    / |  |          ")
+        # print("           |   /  \   |   |____   |     |     |   |  |  \  /  |  | ___      ")             
+        # print("           |  /    \  |   |       |     |     |   |  |   \/   |  |          ")
+        # print("           | /      \ |   |       |     |     |   |  |        |  |          ")
+        # print("           |/        \|   |____   |____ |____ |___|  |        |  |____      ")              
+        # print("                                                                            ")
+        print(
+        '''
+
+             U _____ u  _        ____   U  ___ u  __  __  U _____ u    
+ __        __\| ___"|/ |"|    U /"___|   \/"_ \/U|' \/ '|u\| ___"|/    
+ \"\      /"/ |  _|" U | | u  \| | u     | | | |\| |\/| |/ |  _|"      
+ /\ \ /\ / /\ | |___  \| |/__  | |/__.-,_| |_| | | |  | |  | |___      
+U  \ V  V /  U|_____|  |_____|  \____|\_)-\___/  |_|  |_|  |_____|     
+.-,_\ /\ /_,-.<<   >>  //  \\  _// \\      \\   <<,-,,-.   <<   >>     
+ \_)-'  '-(_/(__) (__)(_")("_)(__)(__)    (__)   (./  \.) (__) (__)    
+
+        ''')
 function()    
 
 
@@ -100,7 +112,14 @@ def main():
             print("New Account")
             print("-"*10)
 
-            print("Enter First Name ...")
+            print("Enter First Name ... # print("                            ____         ___   ___                ____      ")
+        # print("           |          |   |       |     |     |   |  |\      /|  |          ")
+        # print("           |    /\    |   |____   |     |     |   |  | \    / |  |          ")
+        # print("           |   /  \   |   |____   |     |     |   |  |  \  /  |  | ___      ")             
+        # print("           |  /    \  |   |       |     |     |   |  |   \/   |  |          ")
+        # print("           | /      \ |   |       |     |     |   |  |        |  |          ")
+        # print("           |/        \|   |____   |____ |____ |___|  |        |  |____      ")              
+        # print("                                                                            ")")
             first_name = input()
 
             print("Enter Last Name ...")
@@ -128,8 +147,8 @@ def main():
 
             elif password_choice == 'gp':
                 print("Enter the length of the password you wish to generate eg 9 ")
-                pass_len = input()
-                password = password.join(Credentials.rand_pass(pass_len,size))
+                pass_len = int(input())
+                password = rand_pass(pass_len)
                 
 
             elif password_choice == 'ex':
@@ -188,9 +207,8 @@ def main():
                             elif password_choice == 'gp':
                                 print(
                                     "Enter the length of the password you wish to generate eg 9 ")
-                                pass_len = input()
                                 pass_len = int(pass_len)
-                                password = Credentials.rand_pass(
+                                password = rand_pass(
                                     pass_len)
                                 break
 
