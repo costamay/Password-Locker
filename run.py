@@ -12,11 +12,11 @@ def create_user(first_name, last_name, email, phone_number,username, password):
     return new_user
 
 
-def create_credential(user_name, site_name, account_name, password):
+def create_credential(user_name, site_name, password):
     '''
     Function to create a new user account
     '''
-    new_credential = Credential(user_name, site_name, account_name, password)
+    new_credential = Credentials(user_name, site_name, password)
     return new_credential
 
 
@@ -31,14 +31,14 @@ def save_credentials(credential):
     '''
     Function to save a new user account
     '''
-    Credential.save_credentials(credential)
+    Credentials.save_credentials(credential)
 
 
-def verify_user(first_name, password):
+def verify_user(username, password):
     '''
     Function that verifies the existance of the user before creating credentials
     '''
-    checking_user = Credential.check_user(username, password)
+    checking_user = Credentials.check_user(username, password)
     return checking_user
 
 
@@ -46,7 +46,7 @@ def rand_pass(size):
     '''
     A funtion to generate password, combining random letters and digits
     '''
-    return Credential.rand_pass(size)
+    return Credentials.rand_pass(size)
     # @classmethod
     # def display_credentials(cls,uname):
     #     '''
@@ -70,9 +70,20 @@ def copy_credentials(cls, site_name):
     '''
     return cls.copy_credentials(cls, site_name)
 
+def function():
+        print("                            ____         ___   ___                ____      ")
+        print("           |          |   |       |     |     |   |  |\      /|  |          ")
+        print("           |    /\    |   |____   |     |     |   |  | \    / |  |          ")
+        print("           |   /  \   |   |____   |     |     |   |  |  \  /  |  | ___      ")             
+        print("           |  /    \  |   |       |     |     |   |  |   \/   |  |          ")
+        print("           | /      \ |   |       |     |     |   |  |        |  |          ")
+        print("           |/        \|   |____   |____ |____ |___|  |        |  |____      ")              
+        print("                                                                            ")
+function()    
+
 
 def main():
-
+    
     guest_name = input("What is your name?")
     print(f"Hello {guest_name}, welcome to Password Locker:")
     print('\n')
@@ -100,7 +111,7 @@ def main():
             print(" Enter Email Address ...")
             email = input()
 
-            print(" Enter Uesername Address ...")
+            print(" Enter Username Address ...")
             username = input()
 
             
@@ -118,11 +129,11 @@ def main():
                 print("Enter the length of the password you wish to generate eg 9 ")
                 pass_len = input()
                 password = password.join(
-                    Credential.rand_pass(pass_len))
+                    Credentials.rand_pass(pass_len))
                 
 
             elif password_choice == 'ex':
-                
+                print('Goodbye.........')
                 break
 
             else:
@@ -161,15 +172,10 @@ def main():
                         print('\n')
                         print("Enter your credential details")
                         print("Enter account type... eg \'google\'")
-                        account_name = input()
-                        print(f"Enter username ")
-                        user_name = input()
-                        print(f"Enter site name")
                         site_name = input()
-
-                        print(
-                            f"Enter the username you used or would love to use on {site_name}")
-                        user_name = input()
+                        print(f"Enter username ")
+                        username = input()
+                        
 
                         while True:
                             print("Do you want to input your own password or have one generated for you? Use short codes\n'gp\' to generate password.\n \'cyo\' to choose your own password \n \'ex\' to exit... ")
@@ -184,11 +190,12 @@ def main():
                                     "Enter the length of the password you wish to generate eg 9 ")
                                 pass_len = input()
                                 pass_len = int(pass_len)
-                                password = Credential.rand_pass(
+                                password = Credentials.rand_pass(
                                     pass_len)
                                 break
 
                             elif password_choice == 'ex':
+                                print('Goodbye.....')
                                 break
 
                             else:
@@ -197,10 +204,10 @@ def main():
                         
 
                         save_credentials(create_credential(
-                            user_name, site_name, account_name, password))
+                            username, site_name, password))
                         print(' \n')
                         print(
-                            f'Credential Created:\n Account type: {site_name}  \n Account Username: {user_name} \n Account Password: {password}')
+                            f'Credential Created:\n Account type: {site_name}  \n Account Username: {username} \n Account Password: {password}')
                         print('\n ')
 
                     # elif short_code == 'dc':
@@ -234,9 +241,10 @@ def main():
 
             else:
                 print(
-                    f"Sorry, we couldn\'t' find any account under the name {user_name}")
+                    f"Sorry, we couldn\'t' find any account under the name {username}")
                 print('\n')
         elif short_code == 'ex':
+            print('Goodbye...')
             break
 
         else:
