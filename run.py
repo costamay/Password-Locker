@@ -49,11 +49,11 @@ def rand_pass(size):
     return Credentials.rand_pass(size)
    
    
-def display_credentials(username):
+def display_credentials(user_name):
     '''
     A class method that displays all credentials of a given username.
     '''
-    return Credentials.display_credentials(username)
+    return Credentials.display_credentials(user_name)
 
 
 @classmethod
@@ -112,14 +112,7 @@ def main():
             print("New Account")
             print("-"*10)
 
-            print("Enter First Name ... # print("                            ____         ___   ___                ____      ")
-        # print("           |          |   |       |     |     |   |  |\      /|  |          ")
-        # print("           |    /\    |   |____   |     |     |   |  | \    / |  |          ")
-        # print("           |   /  \   |   |____   |     |     |   |  |  \  /  |  | ___      ")             
-        # print("           |  /    \  |   |       |     |     |   |  |   \/   |  |          ")
-        # print("           | /      \ |   |       |     |     |   |  |        |  |          ")
-        # print("           |/        \|   |____   |____ |____ |___|  |        |  |____      ")              
-        # print("                                                                            ")")
+            print("Enter First Name ...")
             first_name = input()
 
             print("Enter Last Name ...")
@@ -193,7 +186,7 @@ def main():
                         print("Enter account type... eg \'google\'")
                         site_name = input()
                         print(f"Enter username ")
-                        username = input()
+                        user_name = input()
                         
 
                         while True:
@@ -207,9 +200,8 @@ def main():
                             elif password_choice == 'gp':
                                 print(
                                     "Enter the length of the password you wish to generate eg 9 ")
-                                pass_len = int(pass_len)
-                                password = rand_pass(
-                                    pass_len)
+                                pass_len = int(input())
+                                password = rand_pass(pass_len)
                                 break
 
                             elif password_choice == 'ex':
@@ -222,18 +214,18 @@ def main():
                         
 
                         save_credentials(create_credential(
-                            username, site_name, password))
+                            user_name, site_name, password))
                         print(' \n')
                         print(
-                            f'Credential Created:\n Account type: {site_name}  \n Account Username: {username} \n Account Password: {password}')
+                            f'Credential Created:\n Account type: {site_name}  \n Account Username: {user_name} \n Account Password: {password}')
                         print('\n ')
 
                     elif short_code == 'dc':
-                        if display_credentials(username):
+                        if display_credentials(user_name):
                             print("Here is a list of your credentials:")
                             print('\n')
-                            for credential in display_credentials(username):
-                                print(f"Credential Created:\n Account type: {site_name} \n Account Username: {username} \n Account Password: {password}")
+                            for credential in display_credentials(user_name):
+                                print(f"Credential Created:\n Account type: {site_name} \n Account Username: {user_name} \n Account Password: {password}")
 
                         else:
                             print("You don\'t have any credentials yet")
