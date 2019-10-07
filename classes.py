@@ -74,14 +74,28 @@ class Credentials:
         Function to delete user credentials
         '''
         Credentials.credential_list.remove(self)
+
+        
     
     def rand_pass(self,size): 
       
         # Takes random choices from 
         # ascii_letters and digits 
+      
         generate_pass = ''.join([random.choice( string.ascii_letters + string.digits) for n in range(size)]) 
                           
         return generate_pass 
+
+    @classmethod    
+    def display_credentials(cls,username):
+        '''
+        Class method to display the list of credentials saved
+        '''
+        user_credentials_list = []
+        for credential in cls.credential_list:
+            if credential.username == username:
+                user_credentials_list.append(credential)
+        return user_credentials_list
 
     @classmethod
     def find_by_site_name(cls, site_name):
