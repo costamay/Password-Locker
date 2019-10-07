@@ -76,8 +76,8 @@ class Credentials:
         Credentials.credential_list.remove(self)
 
         
-    
-    def rand_pass(self,size): 
+    @classmethod
+    def rand_pass(cls,size): 
       
         # Takes random choices from 
         # ascii_letters and digits 
