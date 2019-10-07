@@ -47,12 +47,13 @@ def rand_pass(size):
     A funtion to generate password, combining random letters and digits
     '''
     return Credentials.rand_pass(size)
-    # @classmethod
-    # def display_credentials(cls,uname):
-    #     '''
-    #     A class method that displays all credentials of a given username.
-    #     '''
-    #     return Credentials.display_credentials(cls, uname)
+   
+   
+def display_credentials(username):
+    '''
+    A class method that displays all credentials of a given username.
+    '''
+    return Credentials.display_credentials(username)
 
 
 @classmethod
@@ -128,8 +129,7 @@ def main():
             elif password_choice == 'gp':
                 print("Enter the length of the password you wish to generate eg 9 ")
                 pass_len = input()
-                password = password.join(
-                    Credentials.rand_pass(pass_len))
+                password = password.join(Credentials.rand_pass(pass_len,size))
                 
 
             elif password_choice == 'ex':
@@ -210,15 +210,15 @@ def main():
                             f'Credential Created:\n Account type: {site_name}  \n Account Username: {username} \n Account Password: {password}')
                         print('\n ')
 
-                    # elif short_code == 'dc':
-                    #     if display_credentials(u_name):
-                    #         print("Here is a list of your credentials:")
-                    #         print('\n')
-                    #         for credential in display_credentials(u_name):
-                    #             print(f"Credential Created:\n Account type: {at_type} \n Account Registration Name: {at_rname}\n Account registration Email: {at_remail} \n Account Username: {at_uname} \n Account Password: {at_password}")
+                    elif short_code == 'dc':
+                        if display_credentials(username):
+                            print("Here is a list of your credentials:")
+                            print('\n')
+                            for credential in display_credentials(username):
+                                print(f"Credential Created:\n Account type: {site_name} \n Account Username: {username} \n Account Password: {password}")
 
-                    #     else:
-                    #         print("You don\'t have any credentials yet")
+                        else:
+                            print("You don\'t have any credentials yet")
 
                     # elif short_code == 'rm':
                     #     print("Enter the account type of the credential you wish to delete:...")
