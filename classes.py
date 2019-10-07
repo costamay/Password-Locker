@@ -63,25 +63,23 @@ class Credentials:
 
 
     def save_credentials(self):
-            '''
-            Function to save user credentials
-            '''
+        '''
+        Function to save user credentials
+        '''
 
-            Credential.credential_list.append(self)
+        Credentials.credential_list.append(self)
 
     def delete_credentials(self):
-            '''
-            Function to delete user credentials
-            '''
-            Credential.credential_list.remove(self)
+        '''
+        Function to delete user credentials
+        '''
+        Credentials.credential_list.remove(self)
     
     def rand_pass(self,size): 
       
         # Takes random choices from 
         # ascii_letters and digits 
-        generate_pass = ''.join([random.choice( 
-                        string.ascii_letters + string.digits) 
-                        for n in range(size)]) 
+        generate_pass = ''.join([random.choice( string.ascii_letters + string.digits) for n in range(size)]) 
                           
         return generate_pass 
 
