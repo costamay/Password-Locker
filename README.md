@@ -6,6 +6,17 @@
 ## Description
 This is a project that enable clients to store and retrieve their credentials upon loggin
 
+##Features
+* Create account for new user
+* Loggin in
+* Option of computer generated password
+* Create new credential
+* Display existing credentials
+* Delete credential
+* Search credential by site name
+* Copy credential
+* exit for leaving the site
+
 ## Behavior Driven Development
 <table>
     <tr>
