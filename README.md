@@ -6,7 +6,7 @@
 ## Description
 This is a project that enable clients to store and retrieve their credentials upon loggin
 
-##Features
+## Features
 * Create account for new user
 * Loggin in
 * Option of computer generated password
