@@ -5,7 +5,7 @@ import pyperclip
 
 class TestUser(unittest.TestCase):
     def setUp(self):
-        self.new_user = User('Titus', 'Opiyo', '0727719206','titusouko@gmail.com','costamay', '1234')
+        self.new_user = User('Titus', 'Opiyo', '0705413505','titusouko@gmail.com','costamay', '1234')
 
     def test__init__(self):
         self.assertEqual(self.new_user.first_name, 'Titus')
@@ -79,7 +79,7 @@ class TestCredential(unittest.TestCase):
         twitter = Credentials('Titus', 'twitter', '12345')
         twitter.save_credentials()
         credential_found = Credentials.find_by_site_name('twitter')
-        self.assertEqual(credential_found, twitter)
+        self.assertEqual(credential_found.site_name, 'twitter')
 
     def test_copy_credentials(self):
         '''
