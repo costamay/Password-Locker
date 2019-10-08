@@ -70,22 +70,15 @@ def find_by_site_name( site_name):
     return Credentials.find_by_site_name(site_name)
 
 
-@classmethod
-def copy_credentials(cls, site_name):
+
+def copy_credentials(site_name):
     '''
     A class method to enable us to copy credentials of a given site name.
     '''
-    return cls.copy_credentials(cls, site_name)
+    return Credentials.copy_credentials(site_name)
 
 def function():
-        # print("                            ____         ___   ___                ____      ")
-        # print("           |          |   |       |     |     |   |  |\      /|  |          ")
-        # print("           |    /\    |   |____   |     |     |   |  | \    / |  |          ")
-        # print("           |   /  \   |   |____   |     |     |   |  |  \  /  |  | ___      ")             
-        # print("           |  /    \  |   |       |     |     |   |  |   \/   |  |          ")
-        # print("           | /      \ |   |       |     |     |   |  |        |  |          ")
-        # print("           |/        \|   |____   |____ |____ |___|  |        |  |____      ")              
-        # print("                                                                            ")
+        
         print(
         '''
 
@@ -110,7 +103,9 @@ def main():
         print('\n')
         print(r"*"*30)
         print('\n')
+        print("="*60)    
         print("Use these short codes to navigate through Password_Locker:\n ln to log in \n ca to create a new account. \n ex to exit")
+        print("="*60) 
         print('\n')
 
         short_code = input().lower()
@@ -234,7 +229,18 @@ def main():
 
                         else:
                             print("You don\'t have any credentials yet")
-
+                    elif short_code == "sc":
+                        print("Enter the Account Name you want to search for")
+                        site_name = input().lower()
+                        if find_by_site_name(site_name):
+                            search_credential = find_by_site_name(site_name)
+                            print(f"Account Name : {search_credential.site_name}")
+                            print('-' * 50)
+                            print(f"User Name: {search_credential.user_name} Password :{search_credential.password}")
+                            print('-' * 50)
+                        else:
+                            print("That Credential does not exist")
+                            print('\n')            
                     elif short_code == 'rm':
                         print("Enter the account type of the credential you wish to delete:...")
                         site_name = input()
@@ -247,13 +253,20 @@ def main():
                         else:
                             print(" We couldin\'t find the credentials associated with the account name you typed.")
 
-                    # elif short_code == "copy":
-                    #     print(' \n')
-                    #     site_name = input(
-                    #         'Enter the site name for the credential password to copy: ')
-                    #     cls.copy_credentials(site_name)
-                    #     print('\n')
-
+                    elif short_code == "copy":
+                        print(' \n')
+                        site_name = input(
+                            'Enter the site name for the credential password to copy: ')
+                        if find_by_site_name(site_name):
+                            credential_to_copy = find_by_site_name(site_name)
+                            print("_"*50)
+                            credential_to_copy.copy_credentials(site_name)    
+                            
+                            print('\n')
+                            print("Credential successfully copied")    
+                    elif short_code == "ex":
+                         print('Goodbye.....')
+                         break
                     else:
                         print("I didn\'t get that, please try again")
 
