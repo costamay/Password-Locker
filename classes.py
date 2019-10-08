@@ -113,6 +113,6 @@ class Credentials:
         Class method that copies a credential's info after the credential's account site is entered
         '''
         found_credential = cls.find_by_site_name(site_name)
-        return pyperclip.copy(found_credential.account_password)
+        return pyperclip.copy(found_credential.password)
 
 
