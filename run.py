@@ -55,13 +55,19 @@ def display_credentials(user_name):
     '''
     return Credentials.display_credentials(user_name)
 
+def delete_credential(credentials):
+    """
+    Function to delete a Credentials from credentials list
+    """
+    credentials.delete_credentials()    
 
-@classmethod
-def find_by_site_name(cls, site_name):
+
+
+def find_by_site_name( site_name):
     '''
     A function to search for credentials when given an account site search as google, or twitter.
     '''
-    return cls.find_by_site_name(cls, site_name)
+    return Credentials.find_by_site_name(site_name)
 
 
 @classmethod
@@ -213,8 +219,7 @@ def main():
 
                         
 
-                        save_credentials(create_credential(
-                            user_name, site_name, password))
+                        save_credentials(create_credential(user_name, site_name, password))
                         print(' \n')
                         print(
                             f'Credential Created:\n Account type: {site_name}  \n Account Username: {user_name} \n Account Password: {password}')
@@ -230,14 +235,17 @@ def main():
                         else:
                             print("You don\'t have any credentials yet")
 
-                    # elif short_code == 'rm':
-                    #     print("Enter the account type of the credential you wish to delete:...")
-                    #     credential_to_delete = input()
-                    #     if find_by_account_type(credential_to_delete):
-                    #         credential_to_delete = delete_credentials(credential_to_delete)
-                    #         print("Credential successfully deleted!")
-                    #     else:
-                    #         print(" We couldin\'t find the credentials associated with the account name you typed.")
+                    elif short_code == 'rm':
+                        print("Enter the account type of the credential you wish to delete:...")
+                        site_name = input()
+                        if find_by_site_name(site_name):
+                            credential_to_delete = find_by_site_name(site_name)
+                            print("_"*50)
+                            credential_to_delete.delete_credentials()
+                            print('\n')
+                            print("Credential successfully deleted!")
+                        else:
+                            print(" We couldin\'t find the credentials associated with the account name you typed.")
 
                     # elif short_code == "copy":
                     #     print(' \n')
